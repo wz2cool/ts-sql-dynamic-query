@@ -1,18 +1,21 @@
 import { deserialize, serialize } from "class-transformer";
-import { FilterDescriptorBase } from "ts-dynamic-query";
+import { BaseFilterDescriptor, FilterCondition } from "ts-dynamic-query";
 
-export class CustomFilterDescriptor extends FilterDescriptorBase {
+export class CustomFilterDescriptor implements BaseFilterDescriptor<unknown> {
   public expression: string;
   public params: any[];
-
+  public readonly type: string = "CustomFilterDescriptor";
   constructor() {
-    super("CustomFilterDescriptor");
     this.expression = "";
     this.params = [];
   }
 
   public toJSON(): string {
     return serialize(this);
+  }
+
+  public getCondition(): FilterCondition {
+    return FilterCondition.AND;
   }
 
   public fromJSON(json: string): CustomFilterDescriptor {

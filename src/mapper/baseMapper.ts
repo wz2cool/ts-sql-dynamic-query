@@ -1,5 +1,5 @@
 import { ObjectUtils } from "ts-commons";
-import { DynamicQuery, FilterDescriptor, FilterDescriptorBase, SortDescriptorBase } from "ts-dynamic-query";
+import { DynamicQuery, FilterDescriptor, BaseFilterDescriptor, BaseSortDescriptor } from "ts-dynamic-query";
 import { EntityCache } from "../cache";
 import { IConnection } from "../connection";
 import { AssociationRelation, Entity, Page, PageRowBounds, RelationBase, RowBounds, SqlTemplate } from "../model";
@@ -18,11 +18,11 @@ export abstract class BaseMapper<T extends Entity> {
     return SqlTemplateProvider.getColumnsExpression(this.getEntityClass());
   }
 
-  public getFilterExpression(filters: FilterDescriptorBase[]): SqlTemplate {
+  public getFilterExpression(filters: BaseFilterDescriptor<T>[]): SqlTemplate {
     return SqlTemplateProvider.getFilterExpression(this.getEntityClass(), filters);
   }
 
-  public getSortExpression(sorts: SortDescriptorBase[]): SqlTemplate {
+  public getSortExpression(sorts: BaseSortDescriptor[]): SqlTemplate {
     return SqlTemplateProvider.getSortExpression(this.getEntityClass(), sorts);
   }
 

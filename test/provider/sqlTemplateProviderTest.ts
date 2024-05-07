@@ -398,7 +398,7 @@ describe(".SqlTemplateProvider", () => {
         value: "test",
       });
       const groupFilter = new FilterGroupDescriptor();
-      groupFilter.filters = [idFilter, addressFilter];
+      groupFilter.addFilters([idFilter, addressFilter]);
       const result = SqlTemplateProvider.getFilterExpressionByFilterBase<Customer>(Customer, groupFilter);
       const expectValue = `(Id = ? OR Address LIKE ?)`;
       expect(expectValue).to.be.eq(result.sqlExpression);
