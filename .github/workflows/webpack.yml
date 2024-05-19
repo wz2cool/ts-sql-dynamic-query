@@ -33,10 +33,10 @@ jobs:
         run: sudo /etc/init.d/mysql start
       
       - name : create northwind
-        run: mysql -u root -p123456 -e "create database northwind;"
+        run: mysql -u root -p123456 -h127.0.0.1 -e "create database northwind;"
       
       - name: copy db
-        run: mysql -u root -p123456 --default-character-set=utf8 northwind < sql/mysql/northwind.sql
+        run: mysql -u root -p123456 -h127.0.0.1 --default-character-set=utf8 northwind < sql/mysql/northwind.sql
 
       - name: Install npm dependencies
         run: npm install yarn -g && yarn install # switch to `npm ci` when Node.js 6 support is dropped
