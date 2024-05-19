@@ -23,20 +23,16 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       
-      - name: Setup MySQL
-        uses: mirromutth/mysql-action@v1.1
-        with: 
-          mysql version: "5.7"
-          mysql root password: 123456 # Required if "mysql user" is empty, default is empty. The root superuser password
-      
-      - name: start mysql
-        run: sudo /etc/init.d/mysql start
+      - name: actions-setup-mysql
+        uses: shogo82148/actions-setup-mysql@v1.33.0    
+        with:
+          mysql-version: "5.7"
       
       - name : create northwind
-        run: mysql -h "127.0.0.1" -u root -p 123456  -e "create database northwind;"
+        run: mysql -uroot -e "create database northwind;"
       
       - name: copy db
-        run: mysql -h "127.0.0.1" -u root -p 123456 --default-character-set=utf8 northwind < sql/mysql/northwind.sql
+        run: mysql -uroot --default-character-set=utf8 northwind < sql/mysql/northwind.sql
 
       - name: Install npm dependencies
         run: npm install yarn -g && yarn install # switch to `npm ci` when Node.js 6 support is dropped
