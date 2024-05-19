@@ -29,7 +29,6 @@ describe(".mysqlConnection", () => {
       config.database = "northwind";
       config.host = "localhost";
       config.user = "root";
-      config.password = "123456";
       const pool = new MysqlConnectionPool(config, true);
       pool
         .getConnection()
@@ -56,7 +55,6 @@ describe(".mysqlConnection", () => {
       config.database = "northwind";
       config.host = "localhost";
       config.user = "root";
-      config.password = "123456";
       const pool = new MysqlConnectionPool(config, true);
       pool
         .getConnection()
@@ -83,7 +81,6 @@ describe(".mysqlConnection", () => {
       config.database = "northwind";
       config.host = "localhost";
       config.user = "root";
-      config.password = "123456";
       const pool = new MysqlConnectionPool(config, true);
       pool
         .getConnection()
@@ -110,7 +107,6 @@ describe(".mysqlConnection", () => {
       config.database = "northwind";
       config.host = "localhost";
       config.user = "root";
-      config.password = "123456";
       const pool = new MysqlConnectionPool(config, true);
       pool
         .getConnection()

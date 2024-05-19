@@ -19,7 +19,6 @@ export class BaseTableMapperTestHelper {
     mysqlConfig.database = "northwind";
     mysqlConfig.host = "localhost";
     mysqlConfig.user = "root";
-    mysqlConfig.password = "123456";
     this.mysqlConnectionFactory = new ConnectionFactory(mysqlConfig, true);
   }
 
