@@ -28,6 +28,11 @@ jobs:
         with: 
           mysql version: "5.7"
           mysql root password: 123456 # Required if "mysql user" is empty, default is empty. The root superuser password
+      - name : create northwind
+        run: mysql -u root -p123456 -e "create database northwind;"
+      
+      - name: copy db
+        run: mysql -u root -p123456 --default-character-set=utf8 northwind < sql/mysql/northwind.sql
 
       - name: Install npm dependencies
         run: npm install yarn -g && yarn install # switch to `npm ci` when Node.js 6 support is dropped
