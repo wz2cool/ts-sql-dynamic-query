@@ -28,6 +28,10 @@ jobs:
         with: 
           mysql version: "5.7"
           mysql root password: 123456 # Required if "mysql user" is empty, default is empty. The root superuser password
+      
+      - name: start mysql
+        run: sudo /etc/init.d/mysql start
+      
       - name : create northwind
         run: mysql -u root -p123456 -e "create database northwind;"
       
