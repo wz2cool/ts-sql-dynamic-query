@@ -18,7 +18,8 @@ export class BaseTableMapperTestHelper {
     const mysqlConfig = new MysqlConnectionConfig();
     mysqlConfig.database = "northwind";
     mysqlConfig.host = "localhost";
-    mysqlConfig.user = "travis";
+    mysqlConfig.user = "root";
+    mysqlConfig.password = "123456";
     this.mysqlConnectionFactory = new ConnectionFactory(mysqlConfig, true);
   }
 

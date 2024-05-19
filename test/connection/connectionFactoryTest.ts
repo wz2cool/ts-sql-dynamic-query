@@ -26,7 +26,8 @@ describe(".connectionFactory", () => {
       const config = new MysqlConnectionConfig();
       config.database = "northwind";
       config.host = "localhost";
-      config.user = "travis";
+      config.user = "root";
+      config.password = "123456";
       const connFactory = new ConnectionFactory(config, true);
       connFactory
         .getConnection()

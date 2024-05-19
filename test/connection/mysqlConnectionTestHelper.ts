@@ -8,7 +8,8 @@ export class MysqlConnectionTestHelper {
       const config = new MysqlConnectionConfig();
       config.database = "northwind";
       config.host = "localhost";
-      config.user = "travis";
+      config.user = "root";
+      config.password = "123456";
       const pool = new MysqlConnectionPool(config, true);
       const conn = await pool.getConnection();
       const newStudent = new Student();
@@ -38,7 +39,8 @@ export class MysqlConnectionTestHelper {
       const config = new MysqlConnectionConfig();
       config.database = "northwind";
       config.host = "localhost";
-      config.user = "travis";
+      config.user = "root";
+      config.password = "123456";
       const pool = new MysqlConnectionPool(config, true);
       const conn = await pool.getConnection();
       const newStudent = new Student();
