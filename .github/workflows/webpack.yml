@@ -26,6 +26,7 @@ jobs:
       - name: Setup MySQL
         uses: mirromutth/mysql-action@v1.1
         with: 
+          mysql version: "5.7"
           mysql root password: 123456 # Required if "mysql user" is empty, default is empty. The root superuser password
 
       - name: Install npm dependencies
